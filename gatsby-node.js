@@ -1,7 +1,23 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require(`path`)
 
-// You can delete this file if you're not using it
+exports.createPages = async function({ actions, graphql }) {
+  const { data } = await graphql(`
+    query ConnpassQuery {
+      connpass {
+        events {
+          event_id
+        }
+      }
+    }
+  `)
+  data.connpass.events.forEach(event => {
+    const slug = event.event_id
+    actions.createPage({
+      path: `/events/${slug}`,
+      component: path.resolve(`src/templates/event.js`),
+      context: {
+        slug,
+      },
+    })
+  })
+}
