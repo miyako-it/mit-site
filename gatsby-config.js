@@ -7,6 +7,13 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-purgecss`,
+      {
+        resolve: "gatsby-plugin-transition-link",
+        options: {
+          layout: require.resolve(`./src/layouts/index.js`)
+        }
+      },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
