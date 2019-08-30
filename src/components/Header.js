@@ -1,32 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import Headroom from 'react-headroom'
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const Header = (props) => (
-    <header id="header" style={props.timeout ? {display: 'none'} : {}}>
-        <div className="logo">
-            <span className="icon fa-diamond"></span>
+    <Headroom style={{ zIndex: 100}}>
+        <div className="px-8 md:px-24 shadow">
+            <header className="max-w-5xl mx-auto h-24 w-full flex items-center justify-between bg-white">
+                <AniLink fade to="/">
+                    <h2 className="my-auto text-4xl">MIT</h2>
+                </AniLink>
+                <nav className="list-none my-auto flex items-center justify-between ">
+                    <AniLink className="font-bold ml-8 hover:text-gray-600 transition-color transition-300" fade to="/events">Events</AniLink>
+                    <AniLink className="font-bold ml-8 hover:text-gray-600 transition-color transition-300" fade to="/contact">Contact</AniLink>
+                </nav>
+            </header>
         </div>
-        <div className="content">
-            <div className="inner">
-                <h1>Dimension</h1>
-                <p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-                for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li><button onClick={() => {props.onOpenArticle('intro')}}>Intro</button></li>
-                <li><button onClick={() => {props.onOpenArticle('work')}}>Work</button></li>
-                <li><button onClick={() => {props.onOpenArticle('about')}}>About</button></li>
-                <li><button onClick={() => {props.onOpenArticle('contact')}}>Contact</button></li>
-            </ul>
-        </nav>
-    </header>
+    </Headroom>
 )
-
-Header.propTypes = {
-    onOpenArticle: PropTypes.func,
-    timeout: PropTypes.bool
-}
 
 export default Header

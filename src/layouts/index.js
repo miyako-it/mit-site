@@ -1,16 +1,13 @@
 import React from "react"
-import "../assets/css/tailwind.css"
+
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const Layout = ({ children }) => (
   <>
-    <div className="container mx-auto w-10/12">
-      <main>{children}</main>
-      <footer className="mt-8 mb-4">
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
+    <Header />
+    <main className="px-8 md:px-24">{children}</main>
+    <Footer />
   </>
 )
 
