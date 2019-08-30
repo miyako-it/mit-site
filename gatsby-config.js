@@ -1,19 +1,35 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter - Dimension V2",
-    author: "Hunter Chang",
-    description: "A Gatsby.js V2 Starter based on Dimension by HTML5 UP"
+    title: `みやこIT勉強会`,
+    description: `みやこIT勉強会 official site.`,
+    author: `koji ishimoto`,
+    siteUrl: `https://miyako-it.netlify.com`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-purgecss`,
-      {
-        resolve: "gatsby-plugin-transition-link",
-        options: {
-          layout: require.resolve(`./src/layouts/index.js`)
-        }
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://miyako-it.netlify.com`,
       },
+    },
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-postcss`,
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        id: process.env.GOOGLE_ANALYTICS_ID,
+      },
+    },
+    `gatsby-plugin-purgecss`,
+    {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+        layout: require.resolve(`./src/layouts/index.js`)
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -1,8 +1,10 @@
 import React from 'react'
+import Seo from "../components/Seo"
 
 const Contact = () => {
   return(
     <div className="max-w-5xl mx-auto">
+      <Seo title="Contact" />
       <div className="mx-auto py-16 pb-20">
         <h1 className="mb-16 font-san font-bold text-gray-900 text-4xl text-left">お問い合わせ</h1>
         <p className="font-serif text-gray-700 text-left">団体へのお問い合わせ窓口</p>
