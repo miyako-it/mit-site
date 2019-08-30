@@ -7,18 +7,21 @@ import { ja } from 'date-fns/locale'
 
 const Events = (props) => {
   const events = props.data.connpass.events
-  console.log(events)
   return (
-    <div className="my-4">
-      <h1>開催したもくもく会・勉強会</h1>
-      {events.map(event => {
-        return (
-          <li key={event.event_id} className="list-none my-8">
-            <h3>{format(parseISO(event.started_at), 'PPP EEEE', { locale: ja })}</h3>
-            <AniLink fade to={`/events/${event.event_id}`}>{event.title}</AniLink>
-          </li>  
-        )
-      })}
+    <div className="max-w-5xl mx-auto">
+      <div className="mx-auto py-16">
+        <h1 className="font-san font-bold text-gray-900 text-4xl text-left">開催したもくもく会・勉強会</h1>
+      </div>
+      <ul>
+        {events.map(event => {
+          return (
+            <li key={event.event_id} className="list-none my-8">
+              <h3 className="mb-2">{format(parseISO(event.started_at), 'PPP EEEE', { locale: ja })}</h3>
+              <AniLink className="font-serif hover:text-gray-600 transition-color transition-300" fade to={`/events/${event.event_id}`}>{event.title}</AniLink>
+            </li>  
+          )
+        })}
+      </ul>
     </div>
   )
 }
