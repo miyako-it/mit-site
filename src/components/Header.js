@@ -9,7 +9,7 @@ const Header = (props) => (
                 <AniLink fade to="/">
                     <h2 className="my-auto text-4xl">MIT</h2>
                 </AniLink>
-                <nav className="list-none my-auto flex items-center justify-between ">
+                <nav className="my-auto flex items-center justify-between ">
                     <AniLink className="font-bold ml-8 hover:text-gray-600 transition-color transition-300" fade to="/events">Events</AniLink>
                     <AniLink className="font-bold ml-8 hover:text-gray-600 transition-color transition-300" fade to="/contact">Contact</AniLink>
                 </nav>
