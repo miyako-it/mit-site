@@ -2,7 +2,7 @@ import React from 'react'
 
 const IndexPage = () => (
   <>
-    <div className="w-120 mx-auto pt-16 pb-32">
+    <div className="w-120 max-w-full mx-auto pt-16 pb-32">
       <h1 className="mb-8 font-san font-bold text-gray-900 text-4xl text-center">MIT(みやこIT勉強会)</h1>
       <p className="font-serif text-gray-700 text-center">もくもく会を毎月土曜日に開催しています</p>
     </div>
