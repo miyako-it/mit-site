@@ -1,6 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
+
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Seo from "../components/Seo"
 
 import { parseISO, format } from 'date-fns'
 import { ja } from 'date-fns/locale'
@@ -9,6 +11,7 @@ const Events = (props) => {
   const events = props.data.connpass.events
   return (
     <div className="max-w-5xl mx-auto">
+      <Seo title="Events"/>
       <div className="mx-auto py-16">
         <h1 className="font-san font-bold text-gray-900 text-4xl text-left">開催したもくもく会・勉強会</h1>
       </div>

@@ -1,11 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import Seo from "../components/Seo"
 
 export default function Template({ data }) {
   const events = data.events
   return (
     <div className="blog-post">
+      <Seo title={events.title}/>
       <h1 className="my-8 font-bold text-2xl">{events.title}</h1>
       <h2 className="my-4 text-md">{events.catch}</h2>
       <div
