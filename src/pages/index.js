@@ -27,7 +27,7 @@ const IndexPage = (props) => {
 
 export const query = graphql`
   query MyQuery {
-    allImageSharp(filter: {id: {eq: "83be491c-0a94-5eef-9c30-f08d8dcc6e6e"}}) {
+    allImageSharp(filter: {fluid: {originalName: {eq: "img01.jpg"}}}) {
       edges {
         node {
           fluid {
