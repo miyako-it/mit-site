@@ -45,9 +45,9 @@ module.exports = {
         name: 'みやこIT勉強会',
         short_name: 'MIT',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
+        background_color: '#f0fff6',
+        theme_color: '#f0fff6',
+        display: 'standalone',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
