@@ -1,3 +1,28 @@
 @tailwind base;
+
+@font-face {
+  font-family: "NotoSansJp";
+  font-style: "normal";
+  font-weight: 400;
+  src: url("../fonts/NotoSans_regular.otf") format("opentype"),
+  url("../fonts/NotoSans_regular.woff") format("woff");  
+}
+
+@font-face {
+  font-family: "NotoSansJp";
+  font-style: "normal";
+  font-weight: 700;
+  src: url("../fonts/NotoSans_bold.otf") format("opentype"),
+  url("../fonts/NotoSans_bold.woff") format("woff");  
+}
+
+@font-face {
+  font-family: "NotoSerifJp";
+  font-style: "normal";
+  font-weight: 400;
+  src: url("../fonts/NotoSerif_light.otf") format("opentype"),
+  url("../fonts/NotoSerif_light.woff") format("woff");  
+}
+
 @tailwind components;
 @tailwind utilities;

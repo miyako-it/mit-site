@@ -27,7 +27,12 @@ module.exports = {
         id: process.env.GOOGLE_ANALYTICS_ID,
       },
     },
-    `gatsby-plugin-purgecss`,
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        tailwind: true,
+      }
+    },
     {
       resolve: "gatsby-plugin-transition-link",
       options: {
@@ -37,8 +42,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'みやこIT勉強会',
+        short_name: 'MIT',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
@@ -46,6 +51,22 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'images',
+        path: `${__dirname}/static`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: true,
+        stripMetadata: true,
+        defaultQuality: 80,
+      },
+    },
+    'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',
     {
