@@ -1,18 +1,42 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+
+import Img from 'gatsby-image'
 import Seo from "../components/Seo"
 
-const IndexPage = () => (
-  <>
-    <div className="w-120 max-w-full mx-auto pt-16 pb-32">
+const IndexPage = (props) => {
+  const fluid = props.data.allImageSharp.edges[0].node.fluid
+  return (
+  <div className="px-8 md:px-24">
+    <div className=" mx-auto h-screen -mt-12 sm:-mt-24 flex items-center justify-betweeen">
       <Seo title="MIT" />
-      <h1 className="mb-8 font-san font-bold text-gray-900 text-4xl text-center">MIT(みやこIT勉強会)</h1>
-      <p className="font-serif text-gray-700 text-center">もくもく会を毎月土曜日に開催しています</p>
+      <div className="max-w-md lg:w-5/12">
+        <h1 className="w-full font-sans font-bold text-namari text-4xl text-left leading-loose tracking-widest">
+          みやこIT勉強会はもくもく会を毎月土曜日に開催しています
+        </h1>
+      </div>
+      <Img className="hidden lg:block ml-auto -mr-8 md:-mr-24 xl:-mr-56 self-start w-7/12 xl:w-9/12 h-full border-b-24 border-neutral" fluid={fluid} alt="mitの象徴" />
     </div>
-    <div className="border-t py-12">
-      <h2 className="font-san font-bold text-gray-900 text-2xl text-left">Up coming events</h2>
-      <p className="mt-8 font-serif text-gray-700 text-lg text-left">Coming sonn…</p>
+    <Img className="lg:hidden max-w-screen h-full mb-12 -mx-8 md:-mx-24" fluid={fluid} alt="mitの象徴" />
+    <div className="mx-auto py-16">
+      <h2 className="font-san font-bold text-namari text-2xl text-left">Up coming events</h2>
+      <p className="mt-8 font-serif text-namari text-lg text-left">Coming soon…</p>
     </div>
-  </>
-)
+  </div>
+)}
+
+export const query = graphql`
+  query MyQuery {
+    allImageSharp(filter: {id: {eq: "83be491c-0a94-5eef-9c30-f08d8dcc6e6e"}}) {
+      edges {
+        node {
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

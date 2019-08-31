@@ -4,11 +4,11 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 const Layout = ({ children }) => (
-  <>
+  <div className="bg-neutral">
     <Header />
-    <main className="px-8 md:px-24">{children}</main>
+    <main>{children}</main>
     <Footer />
-  </>
+  </div>
 )
 
 export default Layout
