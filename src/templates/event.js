@@ -11,7 +11,7 @@ export default function Template({ data }) {
       <h1 className="my-8 font-sans font-bold text-2xl">{events.title}</h1>
       <h2 className="my-4 font-sans text-md">{events.catch}</h2>
       <div
-        className="font-serif"
+        className="font-serif break-all"
         dangerouslySetInnerHTML={{ __html: events.description }}
       />
     </div>

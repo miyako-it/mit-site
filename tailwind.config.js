@@ -27,7 +27,6 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          'Noto Sans CJK JP',
           'NotoSansJp',
           ...defaultTheme.fontFamily.sans,
           '游ゴシック体',
@@ -47,7 +46,6 @@ module.exports = {
           'MS PGothic'
         ],
         serif: [
-          'Noto Sans CJK JP',
           'NotoSerifJp',
           ...defaultTheme.fontFamily.serif,
           '游ゴシック体',
@@ -66,7 +64,7 @@ module.exports = {
           'ＭＳ Ｐゴシック',
           'MS PGothic'
         ],
-      },  
+      },
     }
   },
   variants: {},
