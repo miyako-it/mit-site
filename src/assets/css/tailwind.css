@@ -4,8 +4,7 @@
   font-family: "NotoSansJp";
   font-style: "normal";
   font-weight: 400;
-  src: url("../fonts/NotoSans_regular.otf") format("opentype"),
-  url("../fonts/NotoSans_regular.woff") format("woff");
+  src: url("../fonts/Noto Sans JP regular.otf") format("opentype");
   font-display: swap;
 }
 
@@ -13,8 +12,7 @@
   font-family: "NotoSansJp";
   font-style: "normal";
   font-weight: 700;
-  src: url("../fonts/NotoSans_bold.otf") format("opentype"),
-  url("../fonts/NotoSans_bold.woff") format("woff");
+  src: url("../fonts/Noto Sans JP 700.otf") format("opentype");
   font-display: swap;
 }
 
@@ -22,8 +20,7 @@
   font-family: "NotoSerifJp";
   font-style: "normal";
   font-weight: 400;
-  src: url("../fonts/NotoSerif_light.otf") format("opentype"),
-  url("../fonts/NotoSerif_light.woff") format("woff");
+  src: url("../fonts/Noto Serif JP regular.otf") format("opentype");
   font-display: swap;
 }
 
