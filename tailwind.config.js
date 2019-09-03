@@ -27,7 +27,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          'NotoSansJp',
+          'Noto Sans JP',
           ...defaultTheme.fontFamily.sans,
           '游ゴシック体',
           'YuGothic',
@@ -46,7 +46,7 @@ module.exports = {
           'MS PGothic'
         ],
         serif: [
-          'NotoSerifJp',
+          'Noto Serif JP',
           ...defaultTheme.fontFamily.serif,
           '游ゴシック体',
           'YuGothic',

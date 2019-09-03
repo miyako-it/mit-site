@@ -1,27 +1,41 @@
 @tailwind base;
 
+/* noto-sans-jp-regular - japanese */
 @font-face {
-  font-family: "NotoSansJp";
-  font-style: "normal";
+  font-family: 'Noto Sans JP';
+  font-style: normal;
   font-weight: 400;
-  src: url("../fonts/Noto Sans JP regular.otf") format("opentype");
-  font-display: swap;
+  src: url('../fonts/noto-sans-jp-v24-japanese-regular.eot'); /* IE9 Compat Modes */
+  src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'),
+       url('../fonts/noto-sans-jp-v24-japanese-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/noto-sans-jp-v24-japanese-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-jp-v24-japanese-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/noto-sans-jp-v24-japanese-regular.svg#NotoSansJP') format('svg'); /* Legacy iOS */
 }
-
+/* noto-sans-jp-700 - japanese */
 @font-face {
-  font-family: "NotoSansJp";
-  font-style: "normal";
+  font-family: 'Noto Sans JP';
+  font-style: normal;
   font-weight: 700;
-  src: url("../fonts/Noto Sans JP 700.otf") format("opentype");
-  font-display: swap;
+  src: url('../fonts/noto-sans-jp-v24-japanese-700.eot'); /* IE9 Compat Modes */
+  src: local('Noto Sans Japanese Bold'), local('NotoSansJapanese-Bold'),
+       url('../fonts/noto-sans-jp-v24-japanese-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/noto-sans-jp-v24-japanese-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-jp-v24-japanese-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/noto-sans-jp-v24-japanese-700.svg#NotoSansJP') format('svg'); /* Legacy iOS */
 }
 
+/* noto-serif-jp-regular - japanese */
 @font-face {
-  font-family: "NotoSerifJp";
-  font-style: "normal";
+  font-family: 'Noto Serif JP';
+  font-style: normal;
   font-weight: 400;
-  src: url("../fonts/Noto Serif JP regular.otf") format("opentype");
-  font-display: swap;
+  src: url('../fonts/noto-serif-jp-v7-japanese-regular.eot'); /* IE9 Compat Modes */
+  src: local('Noto Serif JP'), local('NotoSerifJP-Regular'),
+       url('../fonts/noto-serif-jp-v7-japanese-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/noto-serif-jp-v7-japanese-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-serif-jp-v7-japanese-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/noto-serif-jp-v7-japanese-regular.svg#NotoSerifJP') format('svg'); /* Legacy iOS */
 }
 
 @tailwind components;
