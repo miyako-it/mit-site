@@ -1,6 +1,9 @@
+// import { paginate } from 'gatsby-awesome-pagination';
+
 const path = require(`path`)
 
 exports.createPages = async function({ actions, graphql }) {
+  const { createPage } = actions
   const { data } = await graphql(`
     query ConnpassQuery {
       connpass {
@@ -12,7 +15,7 @@ exports.createPages = async function({ actions, graphql }) {
   `)
   data.connpass.events.forEach(event => {
     const slug = event.event_id
-    actions.createPage({
+    createPage({
       path: `/events/${slug}`,
       component: path.resolve(`src/templates/event.js`),
       context: {

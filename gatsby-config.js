@@ -40,6 +40,26 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-esa`,
+      options: {
+        // You can get an access token from https://[YOUR_TEAM_NAME].esa.io/user/applications.
+        // You must be owner role.
+        accessToken: process.env.ESA_ACCESS_TOKEN,
+        teamName: 'mit',
+        // Search queary (optional)
+        // See docs: https://docs.esa.io/posts/104
+        // Example : 'in:public'  or 'wip:false in:public'
+        q: '',
+        // Relative Category (optional)
+        // Example: 'public'
+        // {
+        //   category: 'public/gatsby',
+        //   relative_category: 'gatsby',
+        // }
+        baseCategory: ''
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'みやこIT勉強会',
@@ -92,7 +112,7 @@ module.exports = {
               ended_at: String
               limit: Int
               event_type: String
-              series: [series]	
+              series: [series]
               address: String
               place: String
               lat: Float

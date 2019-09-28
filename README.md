@@ -1,5 +1,7 @@
 # gatsby-starter-dimension
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f52a0cdc-8a05-462e-bacd-afe36ff4ebde/deploy-status)](https://app.netlify.com/sites/miyako-it/deploys)
+
 **This is a starter for Gatsby.js V2.**
 
 **The older V1 version of this starter can be found on the v1 branch:**
