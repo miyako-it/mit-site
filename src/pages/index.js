@@ -19,7 +19,7 @@ const IndexPage = (props) => {
     </div>
     <Img className="lg:hidden max-w-screen h-full mb-12 -mx-8 md:-mx-24" fluid={fluid} alt="mitの象徴" />
     <div className="mx-auto py-16">
-      <h2 className="font-san font-bold text-namari text-2xl text-left">Up coming events</h2>
+      <h2 className="font-sans font-bold text-namari text-2xl text-left">Up coming events</h2>
       <p className="mt-8 font-serif text-namari text-lg text-left">Coming soon…</p>
     </div>
   </div>

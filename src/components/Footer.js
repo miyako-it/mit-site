@@ -2,10 +2,10 @@ import React from 'react'
 
 const Footer = (props) => (
     <footer className="px-8 md:px-24 py-24 bg-neutral">
-      <p className="mx-auto text-namari">
+      <p className="mx-auto font-sans text-namari">
         © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a className="hover:text-gray-600 transition-color transition-300" href="https://www.gatsbyjs.org">Gatsby</a>
       </p>
     </footer>
 )
