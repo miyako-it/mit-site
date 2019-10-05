@@ -7,7 +7,7 @@ import Seo from "../components/Seo"
 // import { parseISO, format } from 'date-fns'
 // import { ja } from 'date-fns/locale'
 
-const Events = () => {
+const Blogs = () => {
   const data = useStaticQuery(graphql`
     query EsaQuery {
       allEsaPost {
@@ -29,7 +29,7 @@ const Events = () => {
   return (
     <div className="px-8 md:px-24">
       <div className="max-w-5xl mx-auto">
-        <Seo title="Events"/>
+        <Seo title="Blogs"/>
         <div className="mx-auto py-16">
           <h1 className="font-san font-bold text-gray-900 text-4xl text-center">
             <p>ブログ</p>
@@ -50,4 +50,4 @@ const Events = () => {
   )
 }
 
-export default Events
+export default Blogs
