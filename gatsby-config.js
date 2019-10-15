@@ -27,6 +27,13 @@ module.exports = {
         id: process.env.GOOGLE_ANALYTICS_ID,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-typography`,
+    //   options: {
+    //     pathToConfigModule: `src/utils/typography`,
+    //     // omitGoogleFont: true,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-purgecss',
       options: {
@@ -42,8 +49,6 @@ module.exports = {
     {
       resolve: `gatsby-source-esa`,
       options: {
-        // You can get an access token from https://[YOUR_TEAM_NAME].esa.io/user/applications.
-        // You must be owner role.
         accessToken: process.env.ESA_ACCESS_TOKEN,
         teamName: 'mit',
         // Search queary (optional)

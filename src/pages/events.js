@@ -25,9 +25,9 @@ const Events = () => {
       <div className="max-w-5xl mx-auto">
         <Seo title="Events"/>
         <div className="mx-auto py-16">
-          <h1 className="font-san font-bold text-gray-900 text-4xl text-center">
-            <p>もくもく会</p>
-            <p>勉強会</p>
+          <h1 className="flex flex-col font-san font-bold text-gray-900 text-4xl text-center">
+            <span className='mb-4'>もくもく会</span>
+            <span>勉強会</span>
           </h1>
         </div>
         <ul>
@@ -36,7 +36,7 @@ const Events = () => {
               <li key={event.event_id} className="list-none my-8">
                 <h3 className="mb-2">{format(parseISO(event.started_at), 'PPP EEEE', { locale: ja })}</h3>
                 <AniLink className="font-serif hover:text-gray-600 transition-color transition-300" fade to={`/events/${event.event_id}`}>{event.title}</AniLink>
-              </li>  
+              </li>
             )
           })}
         </ul>

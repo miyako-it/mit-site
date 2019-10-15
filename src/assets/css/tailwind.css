@@ -1,4 +1,7 @@
-@tailwind base;
+@import "tailwindcss/base";
+@import "github-markdown-css/github-markdown";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /* noto-sans-jp-regular - japanese */
 @font-face {
@@ -37,6 +40,3 @@
        url('../fonts/noto-serif-jp/noto-serif-jp-v7-japanese_latin-regular.woff') format('woff'), /* Modern Browsers */
        url('../fonts/noto-serif-jp/noto-serif-jp-v7-japanese_latin-regular.svg#NotoSerifJP') format('svg'); /* Legacy iOS */
 }
-
-@tailwind components;
-@tailwind utilities;
