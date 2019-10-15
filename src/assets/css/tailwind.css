@@ -1,5 +1,7 @@
 @import "tailwindcss/base";
+/* purgecss start ignore */
 @import "github-markdown-css/github-markdown";
+/* purgecss end ignore */
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
