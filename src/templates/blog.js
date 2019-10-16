@@ -3,11 +3,11 @@ import { graphql } from 'gatsby'
 
 import Seo from '../components/Seo'
 
-import * as xss from 'xss'
+import insane from 'insane' //xss対策
 
 export default function Template({ data }) {
   const blog = data.allEsaPost.edges[0].node
-  const filterXSS = xss.filterXSS
+  const bodyHtml = insane(blog.body_html)
 
   return (
     <div className="max-w-5xl mx-auto px-8 md:px-24">
@@ -16,7 +16,7 @@ export default function Template({ data }) {
       <h2 className="my-4 font-sans text-md">{blog.created_at}</h2>
       <div
         className="mt-16 font-serif break-all markdown-body"
-        dangerouslySetInnerHTML={{ __html: filterXSS(blog.body_html) }}
+        dangerouslySetInnerHTML={{ __html: bodyHtml }}
       />
     </div>
   )
