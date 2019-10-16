@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Footer = props => (
-  <footer className="px-8 md:px-24 py-24 bg-neutral">
+const Footer = () => (
+  <footer className="px-8 md:px-24 py-20 bg-neutral">
     <p className="mx-auto font-sans text-namari">
       © {new Date().getFullYear()}, Built with
       {` `}

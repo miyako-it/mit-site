@@ -1,11 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Img from 'gatsby-image'
 import Seo from '../components/Seo'
 
-const IndexPage = props => {
-  const fluid = props.data.allImageSharp.edges[0].node.fluid
+import { parseISO, format, isBefore } from 'date-fns'
+import { ja } from 'date-fns/locale'
+
+const IndexPage = ({ data }) => {
+  const fluid = data.allImageSharp.edges[0].node.fluid
+  const upcomingEvents = data.connpass.events.filter(event => {
+    return isBefore(new Date(), parseISO(event.started_at))
+  })
   return (
     <div className="px-8 md:px-24">
       <div className=" mx-auto h-screen -mt-12 md:-mt-24 flex items-center justify-betweeen">
@@ -26,13 +33,33 @@ const IndexPage = props => {
         fluid={fluid}
         alt="mitの象徴"
       />
-      <div className="mx-auto py-16">
+      <div className="mx-auto pt-10">
         <h2 className="font-sans font-bold text-namari text-2xl text-left">
-          Up coming events
+          開催予定
         </h2>
-        <p className="mt-8 font-serif text-namari text-lg text-left">
-          Coming soon…
-        </p>
+        <ul className="mt-16 font-serif text-namari text-lg text-left">
+          {upcomingEvents.map(event => {
+            return (
+              <li
+                key={event.event_id}
+                className="list-none my-8 last:my-0 last:mt-8"
+              >
+                <h3 className="mb-2">
+                  {format(parseISO(event.started_at), `PPP EEEE`, {
+                    locale: ja,
+                  })}
+                </h3>
+                <AniLink
+                  className="font-serif hover:text-gray-600 transition-color transition-300"
+                  fade
+                  to={`/events/${event.event_id}`}
+                >
+                  {event.title}
+                </AniLink>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </div>
   )
@@ -47,6 +74,13 @@ export const query = graphql`
             ...GatsbyImageSharpFluid_withWebp
           }
         }
+      }
+    }
+    connpass {
+      events {
+        title
+        event_id
+        started_at
       }
     }
   }

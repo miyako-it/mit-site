@@ -22,7 +22,10 @@ const Events = ({ data }) => {
         <ul>
           {events.map(event => {
             return (
-              <li key={event.event_id} className="list-none my-8">
+              <li
+                key={event.event_id}
+                className="list-none my-8 last:my-0 last:mt-8"
+              >
                 <h3 className="mb-2">
                   {format(parseISO(event.started_at), `PPP EEEE`, {
                     locale: ja,
