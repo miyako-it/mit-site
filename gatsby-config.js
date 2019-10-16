@@ -1,4 +1,4 @@
-require("dotenv").config({
+require(`dotenv`).config({
   path: `.env`,
 })
 
@@ -10,7 +10,7 @@ module.exports = {
     siteUrl: `https://miyako-it.netlify.com`,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
@@ -22,7 +22,7 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-postcss`,
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
         id: process.env.GOOGLE_ANALYTICS_ID,
       },
@@ -35,52 +35,52 @@ module.exports = {
     //   },
     // },
     {
-      resolve: 'gatsby-plugin-purgecss',
+      resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
         tailwind: true,
-      }
+      },
     },
     {
-      resolve: "gatsby-plugin-transition-link",
+      resolve: `gatsby-plugin-transition-link`,
       options: {
-        layout: require.resolve(`./src/layouts/index.js`)
-      }
+        layout: require.resolve(`./src/layouts/index.js`),
+      },
     },
     {
       resolve: `gatsby-source-esa`,
       options: {
         accessToken: process.env.ESA_ACCESS_TOKEN,
-        teamName: 'mit',
+        teamName: `mit`,
         // Search queary (optional)
         // See docs: https://docs.esa.io/posts/104
         // Example : 'in:public'  or 'wip:false in:public'
-        q: 'wip:false in:blog',
+        q: `wip:false in:blog`,
         // Relative Category (optional)
         // Example: 'public'
         // {
         //   category: 'public/gatsby',
         //   relative_category: 'gatsby',
         // }
-        baseCategory: 'blog'
-      }
+        baseCategory: `blog`,
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'みやこIT勉強会',
-        short_name: 'MIT',
-        start_url: '/',
-        background_color: '#f0fff6',
-        theme_color: '#f0fff6',
-        display: 'standalone',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        name: `みやこIT勉強会`,
+        short_name: `MIT`,
+        start_url: `/`,
+        background_color: `#f0fff6`,
+        theme_color: `#f0fff6`,
+        display: `standalone`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'images',
+        name: `images`,
         path: `${__dirname}/static`,
       },
     },
@@ -92,22 +92,22 @@ module.exports = {
         defaultQuality: 80,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-offline',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-offline`,
     {
-      resolve: "gatsby-source-custom-api",
+      resolve: `gatsby-source-custom-api`,
       options: {
-          url: "https://connpass.com/api/v1/event/?series_id=7278&order=2&count=100",
-          rootKey: "connpass",
-          schemas: {
-            connpass: `
+        url: `https://connpass.com/api/v1/event/?series_id=7278&order=2&count=100`,
+        rootKey: `connpass`,
+        schemas: {
+          connpass: `
               results_returned: Int
               results_available: Int
               results_start: Int
               events: [events]
             `,
-            events: `
+          events: `
               event_id: Int
               title: String
               catch: String
@@ -130,13 +130,13 @@ module.exports = {
               waiting: Int
               updated_at: String
             `,
-            series: `
+          series: `
               id: Int
               title: String
               url: String
-            `
-        }
-      }
-    }
+            `,
+        },
+      },
+    },
   ],
 }

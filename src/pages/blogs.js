@@ -1,8 +1,8 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import Seo from "../components/Seo"
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import Seo from '../components/Seo'
 
 // import { parseISO, format } from 'date-fns'
 // import { ja } from 'date-fns/locale'
@@ -29,7 +29,7 @@ const Blogs = () => {
   return (
     <div className="px-8 md:px-24">
       <div className="max-w-5xl mx-auto">
-        <Seo title="Blogs"/>
+        <Seo title="Blogs" />
         <div className="mx-auto py-16">
           <h1 className="font-san font-bold text-gray-900 text-4xl text-center">
             <p>ブログ</p>
@@ -40,7 +40,13 @@ const Blogs = () => {
             return (
               <li key={blog.node.id} className="list-none my-8">
                 <h3 className="mb-2">{blog.node.created_at}</h3>
-                <AniLink className="font-serif hover:text-gray-600 transition-color transition-300" fade to={`/blogs/${blog.node.updated_at}`}>{blog.node.name}</AniLink>
+                <AniLink
+                  className="font-serif hover:text-gray-600 transition-color transition-300"
+                  fade
+                  to={`/blogs/${blog.node.updated_at}`}
+                >
+                  {blog.node.name}
+                </AniLink>
               </li>
             )
           })}
