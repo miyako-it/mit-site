@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Seo from '../components/Seo'
@@ -7,25 +7,9 @@ import Seo from '../components/Seo'
 // import { parseISO, format } from 'date-fns'
 // import { ja } from 'date-fns/locale'
 
-const Blogs = () => {
-  const data = useStaticQuery(graphql`
-    query EsaQuery {
-      allEsaPost {
-        edges {
-          node {
-            id
-            name
-            created_at(locale: "ja", formatString: "Y年M月D日")
-            updated_at(formatString: "Y/M/D/h/m/s")
-          }
-        }
-      }
-    }
-  `)
-
+const Blogs = ({ data }) => {
   const blogs = data.allEsaPost.edges
 
-  console.log(data)
   return (
     <div className="px-8 md:px-24">
       <div className="max-w-5xl mx-auto">
@@ -57,3 +41,18 @@ const Blogs = () => {
 }
 
 export default Blogs
+
+export const data = graphql`
+  query EsaQuery {
+    allEsaPost {
+      edges {
+        node {
+          id
+          name
+          created_at(locale: "ja", formatString: "Y年M月D日")
+          updated_at(formatString: "Y/M/D/h/m/s")
+        }
+      }
+    }
+  }
+`
