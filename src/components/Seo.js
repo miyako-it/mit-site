@@ -81,7 +81,39 @@ function SEO({ description, lang, meta, title }) {
           content: `mitogp.png`,
         },
       ].concat(meta)}
-    />
+    >
+      <script
+        src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3"
+        async
+        defer
+      >{`
+        const crate = new Crate({
+          server: '608608195740565514',
+          channel: '608872744171601945',
+          shard: 'https://disweb.dashflo.net'
+        })
+        crate.hide()
+        setTimeout(() => {
+          crate.show()
+          crate.notify({
+            content: 'みやこIT勉強会の公式サイトへようこそ！',
+            timeout: 4000,
+          })
+          setTimeout(() => {
+            crate.notify({
+              content: '右下のアイコンからDiscordのチャットルームに入れます',
+              timeout: 4000,
+            })
+            setTimeout(() => {
+              crate.notify({
+                content: 'メッセージを残していってね😉',
+                timeout: 4000,
+              })
+            }, 2000)
+          }, 2000)
+        }, 5000)
+      `}</script>
+    </Helmet>
   )
 }
 
