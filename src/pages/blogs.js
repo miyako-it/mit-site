@@ -4,8 +4,8 @@ import { graphql } from 'gatsby'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Seo from '../components/Seo'
 
-// import { parseISO, format } from 'date-fns'
-// import { ja } from 'date-fns/locale'
+import { parseISO, format } from 'date-fns'
+import { ja } from 'date-fns/locale'
 
 const Blogs = ({ data }) => {
   const blogs = data.allEsaPost.edges
@@ -22,8 +22,15 @@ const Blogs = ({ data }) => {
         <ul>
           {blogs.map(blog => {
             return (
-              <li key={blog.node.id} className="list-none my-8">
-                <h3 className="mb-2">{blog.node.created_at}</h3>
+              <li
+                key={blog.node.id}
+                className="list-none my-8 last:my-0 last:mt-8 flex flex-col"
+              >
+                <time dateTime={blog.node.created_at} className="mb-2">
+                  {format(parseISO(blog.node.created_at), `PPP EEEE`, {
+                    locale: ja,
+                  })}
+                </time>
                 <AniLink
                   className="font-serif hover:text-gray-600 transition-color transition-300"
                   fade
@@ -49,7 +56,7 @@ export const data = graphql`
         node {
           id
           name
-          created_at(locale: "ja", formatString: "Y年M月D日")
+          created_at
           updated_at(formatString: "Y/M/D/h/m/s")
         }
       }

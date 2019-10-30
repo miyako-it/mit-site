@@ -24,13 +24,13 @@ const Events = ({ data }) => {
             return (
               <li
                 key={event.event_id}
-                className="list-none my-8 last:my-0 last:mt-8"
+                className="list-none my-8 last:my-0 last:mt-8 flex flex-col"
               >
-                <h3 className="mb-2">
+                <time dateTime={event.started_at} className="mb-2">
                   {format(parseISO(event.started_at), `PPP EEEE`, {
                     locale: ja,
                   })}
-                </h3>
+                </time>
                 <AniLink
                   className="font-serif hover:text-gray-600 transition-color transition-300"
                   fade
