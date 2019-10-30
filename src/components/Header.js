@@ -13,18 +13,18 @@ const Header = props => (
         </AniLink>
         <nav className="my-auto flex items-center justify-between ">
           <AniLink
-            className="font-serif ml-8 hover:text-gray-600 transition-color transition-300"
+            className="font-serif ml-8 underline_center"
             fade
             to="/events"
           >
-            Events
+            <h4>Events</h4>
           </AniLink>
           <AniLink
-            className="font-serif ml-8 hover:text-gray-600 transition-color transition-300"
+            className="font-serif ml-8 underline_center"
             fade
             to="/contact"
           >
-            Contact
+            <h4>Contact</h4>
           </AniLink>
         </nav>
       </header>

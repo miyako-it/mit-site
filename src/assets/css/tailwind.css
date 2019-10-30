@@ -5,6 +5,31 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.underline_center {
+	position: relative;
+	padding-bottom: 0.3em;
+	display: inline-block;
+	transition: .4s;
+	@apply text-gray-800;
+}
+.underline_center:hover {
+  @apply text-gray-600;
+}
+.underline_center::after {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	content: '';
+	width: 0;
+	height: 1px;
+	@apply bg-gray-600;
+	transition: .4s;
+	transform: translateX(-50%);
+}
+.underline_center:hover::after {
+  width: 100%;
+}
+
 /* noto-sans-jp-regular - japanese */
 @font-face {
   font-family: 'Noto Sans JP';

@@ -5,10 +5,7 @@ const Footer = () => (
     <p className="mx-auto font-sans text-namari">
       © {new Date().getFullYear()}, Built with
       {` `}
-      <a
-        className="hover:text-gray-600 transition-color transition-300"
-        href="https://www.gatsbyjs.org"
-      >
+      <a className="underline_center" href="https://www.gatsbyjs.org">
         Gatsby
       </a>
     </p>

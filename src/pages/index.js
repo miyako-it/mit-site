@@ -25,7 +25,7 @@ const UpcomingEvents = ({ events, className }) => {
             return (
               <li
                 key={event.event_id}
-                className="list-none my-8 last:my-0 last:mt-8 flex flex-col"
+                className="list-none my-8 last:my-0 last:mt-8 flex flex-col items-start"
               >
                 <time dateTime={event.started_at} className="mb-2">
                   {format(parseISO(event.started_at), `PPP EEEE`, {
@@ -33,11 +33,11 @@ const UpcomingEvents = ({ events, className }) => {
                   })}
                 </time>
                 <AniLink
-                  className="font-serif hover:text-gray-600 transition-color transition-300"
+                  className="font-serif underline_center"
                   fade
                   to={`/events/${event.event_id}`}
                 >
-                  {event.title}
+                  <h3>{event.title}</h3>
                 </AniLink>
               </li>
             )
