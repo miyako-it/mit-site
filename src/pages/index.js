@@ -8,32 +8,15 @@ import Seo from '../components/Seo'
 import { parseISO, format, isBefore } from 'date-fns'
 import { ja } from 'date-fns/locale'
 
-const IndexPage = ({ data }) => {
-  const fluid = data.allImageSharp.edges[0].node.fluid
-  const upcomingEvents = data.connpass.events.filter(event => {
+const UpcomingEvents = ({ events, className }) => {
+  const upcomingEvents = events.filter(event => {
     return isBefore(new Date(), parseISO(event.started_at))
   })
-  return (
-    <div className="px-8 md:px-24">
-      <div className=" mx-auto h-screen -mt-12 md:-mt-24 flex items-center justify-betweeen">
-        <Seo title="MIT" />
-        <div className="max-w-md lg:w-5/12">
-          <h1 className="w-full font-sans font-bold text-namari text-4xl text-left leading-loose tracking-widest">
-            みやこIT勉強会はもくもく会を毎月土曜日に開催しています
-          </h1>
-        </div>
-        <Img
-          className="hidden lg:block ml-auto -mr-8 md:-mr-24 xl:-mr-56 self-start w-8/12 xl:w-9/12 h-full border-b-24 border-neutral"
-          fluid={fluid}
-          alt="mitの象徴"
-        />
-      </div>
-      <Img
-        className="lg:hidden max-w-screen h-full mb-12 -mx-8 md:-mx-24"
-        fluid={fluid}
-        alt="mitの象徴"
-      />
-      <div className="mx-auto pt-10">
+  if (Object.keys(upcomingEvents).length === 0) {
+    return <></>
+  } else {
+    return (
+      <div className={className}>
         <h2 className="font-sans font-bold text-namari text-2xl text-left">
           開催予定
         </h2>
@@ -61,12 +44,39 @@ const IndexPage = ({ data }) => {
           })}
         </ul>
       </div>
+    )
+  }
+}
+const IndexPage = ({ data }) => {
+  const fluid = data.allImageSharp.edges[0].node.fluid
+  const upcomingEvents = data.connpass.events
+  return (
+    <div className="px-8 md:px-24">
+      <div className=" mx-auto h-screen -mt-12 md:-mt-24 flex items-center justify-betweeen">
+        <Seo title="MIT" />
+        <div className="max-w-md lg:w-5/12">
+          <h1 className="w-full font-sans font-bold text-namari text-4xl text-left leading-loose tracking-widest">
+            みやこIT勉強会はもくもく会を毎月土曜日に開催しています
+          </h1>
+        </div>
+        <Img
+          className="hidden lg:block ml-auto -mr-8 md:-mr-24 xl:-mr-56 self-start w-8/12 xl:w-9/12 h-full border-b-24 border-neutral"
+          fluid={fluid}
+          alt="会場の写真"
+        />
+      </div>
+      <Img
+        className="lg:hidden max-w-screen h-full mb-12 -mx-8 md:-mx-24"
+        fluid={fluid}
+        alt="会場の写真"
+      />
+      <UpcomingEvents className="mx-auto pt-10" events={upcomingEvents} />
     </div>
   )
 }
 
 export const query = graphql`
-  query MyQuery {
+  query IndexPageQuery {
     allImageSharp(filter: { fluid: { originalName: { eq: "img01.jpg" } } }) {
       edges {
         node {
