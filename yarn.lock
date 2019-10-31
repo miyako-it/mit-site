@@ -5776,10 +5776,10 @@ gatsby-plugin-sitemap@^2.2.9:
     pify "^3.0.0"
     sitemap "^1.13.0"
 
-gatsby-plugin-transition-link@^1.12.4:
-  version "1.12.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-transition-link/-/gatsby-plugin-transition-link-1.12.4.tgz#2720ec154e28981de906c200c16a240d6cb59cba"
-  integrity sha512-+1j/knyO/7soWAokoWvNuta8EzEmBVgsPMQh+8QxHVmwMfhzh+o6AnvPITWgcjFShbb6sC91JO/LQze3T52jeQ==
+gatsby-plugin-transition-link@^1.14.2:
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-transition-link/-/gatsby-plugin-transition-link-1.14.2.tgz#c4483b77fa108a3c87a82913d7504b6bb80bd292"
+  integrity sha512-oL9bn2TjU1CJhAU06P5POCTKsOVHuF28oO369ObghYJIPbeBd0X6z3VQ0p8X9DHlle2aUbXYbgjxHrx0DO590w==
   dependencies:
     babel-preset-gatsby-package "^0.1.2"
     color-convert "^1.9.3"
