@@ -6088,12 +6088,12 @@ gatsby-plugin-graphql-codegen@^2.0.1:
     graphql-toolkit "^0.5.0"
     lodash.debounce "^4.0.8"
 
-gatsby-plugin-layout@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.1.5.tgz#9a6b84019bc8c7b89dcf147a01a7365d3e550e0c"
-  integrity sha512-9vfmSiGQxuvRPZrCTt0bR+59ze8+fTRvm3my2M/0BpKuBJNL/Ybip8i4W0FC3YLKQ/Pm4lg21ZePEpfHDeVtag==
+gatsby-plugin-layout@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.1.13.tgz#334e2192c5a4e8e802706eadee99e5906528df1f"
+  integrity sha512-/UqHYq4/ODFXH/LHG1PoAJfRbZcE2EGN1ozf502P0W9/AvFBjnXbOr8aD7UXtgE0iO+jZtVr+I0uHbqQnBTmpA==
   dependencies:
-    "@babel/runtime" "^7.5.5"
+    "@babel/runtime" "^7.6.3"
 
 gatsby-plugin-manifest@^2.0.24:
   version "2.2.9"
