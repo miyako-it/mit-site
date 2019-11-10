@@ -28,7 +28,7 @@ export default function Template({ data }) {
   )
 }
 export const pageQuery = graphql`
-  query EsaBlogQuery($id: String) {
+  query EsaBlogTemp($id: String) {
     allEsaPost(filter: { id: { eq: $id } }) {
       edges {
         node {

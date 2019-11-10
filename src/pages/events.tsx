@@ -60,7 +60,7 @@ const Events = ({ data }) => {
 export default Events
 
 export const query = graphql`
-  query EventsQuery {
+  query EventsPage {
     connpass {
       events {
         title

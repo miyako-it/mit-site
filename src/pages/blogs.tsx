@@ -22,10 +22,7 @@ const Blogs = ({ data }) => {
         <ul>
           {blogs.map(blog => {
             return (
-              <li
-                key={blog.node.id}
-                className="list-none my-8 last:my-0 last:mt-8 flex flex-col"
-              >
+              <li key={blog.node.id} className="list-none my-8 last:my-0 last:mt-8 flex flex-col">
                 <time dateTime={blog.node.created_at} className="mb-2">
                   {format(parseISO(blog.node.created_at), `PPP EEEE`, {
                     locale: ja,
@@ -50,7 +47,7 @@ const Blogs = ({ data }) => {
 export default Blogs
 
 export const data = graphql`
-  query EsaQuery {
+  query BlogsPage {
     allEsaPost {
       edges {
         node {

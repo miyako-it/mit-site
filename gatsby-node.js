@@ -17,7 +17,7 @@ exports.createPages = async function({ actions, graphql }) {
     const slug = event.event_id
     createPage({
       path: `/events/${slug}`,
-      component: path.resolve(`src/templates/event.js`),
+      component: path.resolve(`src/templates/event.tsx`),
       context: {
         slug,
       },
@@ -42,7 +42,7 @@ exports.createPages = async function({ actions, graphql }) {
     const id = blog.node.id
     createPage({
       path: `/blogs/${slug}`,
-      component: path.resolve(`src/templates/blog.js`),
+      component: path.resolve(`src/templates/blog.tsx`),
       context: {
         id,
       },

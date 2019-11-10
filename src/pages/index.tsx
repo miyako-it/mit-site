@@ -17,9 +17,7 @@ const UpcomingEvents = ({ events, className }) => {
   } else {
     return (
       <div className={className}>
-        <h2 className="font-sans font-bold text-namari text-2xl text-left">
-          開催予定
-        </h2>
+        <h2 className="font-sans font-bold text-namari text-2xl text-left">開催予定</h2>
         <ul className="mt-16 font-serif text-namari text-lg text-left">
           {upcomingEvents.map(event => {
             return (
@@ -76,7 +74,7 @@ const IndexPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query IndexPageQuery {
+  query IndexPage {
     allImageSharp(filter: { fluid: { originalName: { eq: "img01.jpg" } } }) {
       edges {
         node {

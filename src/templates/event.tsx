@@ -51,7 +51,7 @@ export default function Template({ data }) {
   )
 }
 export const pageQuery = graphql`
-  query EventByID($slug: Int) {
+  query EventByIDTemp($slug: Int) {
     events(event_id: { eq: $slug }) {
       event_id
       title
