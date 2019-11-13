@@ -1,8 +1,16 @@
 // import { paginate } from 'gatsby-awesome-pagination';
+'use strict'
+
+require(`ts-node`).register({
+  compilerOptions: {
+    module: `commonjs`,
+    target: `esnext`,
+  },
+})
 
 const path = require(`path`)
 
-exports.createPages = async function({ actions, graphql }) {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   const conpass = await graphql(`
     query ConnpassQuery {
