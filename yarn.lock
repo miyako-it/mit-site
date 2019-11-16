@@ -5891,10 +5891,10 @@ gatsby-plugin-preact@^3.1.21:
   dependencies:
     "@babel/runtime" "^7.7.2"
 
-gatsby-plugin-preload-fonts@^1.0.15:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-preload-fonts/-/gatsby-plugin-preload-fonts-1.0.16.tgz#3754195cbe3d0b646d2919ad055522f7a7af8d6b"
-  integrity sha512-0j0zTkLL1dJFHNho/0olpfbO4sQbiYgi5/OPrVtKEOaXv+XHYLCDpnYzYtUzM5P21vGwnojxA9ui+Tk3wssU2g==
+gatsby-plugin-preload-fonts@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preload-fonts/-/gatsby-plugin-preload-fonts-1.0.17.tgz#a2c61f550e56e2caa564608fe447d1daaf72c9d4"
+  integrity sha512-eOyWfY/izrA9tcyjk9pXPUv/xL31QkRm3yAHb1pkEGE8aYi0olhzN3yfWHDzJiEMfXAxHlESwXwGo3uoPvevFQ==
   dependencies:
     chalk "^2.4.2"
     date-fns "^2.7.0"
