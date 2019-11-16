@@ -18,6 +18,7 @@ module.exports = {
         codegen: true,
       },
     },
+    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,

@@ -5884,6 +5884,13 @@ gatsby-plugin-postcss@^2.1.5:
     "@babel/runtime" "^7.7.2"
     postcss-loader "^3.0.0"
 
+gatsby-plugin-preact@^3.1.21:
+  version "3.1.21"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-3.1.21.tgz#ea27f5974006b35fc7a5a7128823c6ad61d44457"
+  integrity sha512-810MrnbbcDJ+p4dk+rSmbygsM/juCXoGDeVO23xa7w7jVpiQj21OXvsNeBUCMOTB3owQZvL/vnq1uLbqzElKJQ==
+  dependencies:
+    "@babel/runtime" "^7.7.2"
+
 gatsby-plugin-preload-fonts@^1.0.15:
   version "1.0.16"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-preload-fonts/-/gatsby-plugin-preload-fonts-1.0.16.tgz#3754195cbe3d0b646d2919ad055522f7a7af8d6b"
@@ -10866,6 +10873,11 @@ potrace@^2.1.2:
   integrity sha512-dNcUBapRgPkiv3j+70+rSlf0whtJJqEszC04g9a/Ll3p6kA7QVRV1Vsi3jg22voJr2jA9x9fjPbz5MdD+ngbUg==
   dependencies:
     jimp "^0.6.4"
+
+preact@^10.0.5:
+  version "10.0.5"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.0.5.tgz#16f0bcd77241693e710778069e703217dd497867"
+  integrity sha512-62+J+GTrv3Uhp6DefqZTel6VYcdUA1zqHO7gjQSKdOwkU2sNOp/Vl6Zf2A3hIWV5EBgjeDA8gsOn6dmB3I1Dvg==
 
 prebuild-install@^5.3.2:
   version "5.3.3"
