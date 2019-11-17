@@ -76,7 +76,7 @@ const IndexPage : React.FC<Props> = ({ data }) => {
       />
       <UpcomingEvents className="mx-auto pt-10 mb-24" events={upcomingEvents} />
       <h2 className="mb-12 font-sans font-bold text-namari text-2xl text-left">Twitter</h2>
-      <a className="twitter-timeline" data-height="600" href="https://twitter.com/AIAI03304476?ref_src=twsrc%5Etfw">Tweets by AIAI03304476</a>
+      <a className="twitter-timeline" data-height="600" href="https://twitter.com/AIAI03304476?ref_src=twsrc%5Etfw"></a>
     </div>
   )
 }
