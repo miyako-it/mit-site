@@ -15,17 +15,25 @@ const Header = props => (
           <AniLink
             className="font-serif ml-8 underline_center"
             fade
+            to="/about"
+          >
+            <h4>About</h4>
+          </AniLink>
+
+          <AniLink
+            className="font-serif ml-8 underline_center"
+            fade
             to="/events"
           >
             <h4>Events</h4>
           </AniLink>
-          <AniLink
+          {/* <AniLink
             className="font-serif ml-8 underline_center"
             fade
             to="/contact"
           >
             <h4>Contact</h4>
-          </AniLink>
+          </AniLink> */}
         </nav>
       </header>
     </div>
