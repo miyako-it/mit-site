@@ -5,3 +5,17 @@
  */
 
 // You can delete this file if you're not using it
+const React = require(`react`)
+
+exports.onRenderBody = ({ setHeadComponents }) => {
+  setHeadComponents([
+    <script
+      key="twitter"
+      async
+      defer
+      type="text/javascript"
+      src="https://platform.twitter.com/widgets.js"
+      charSet="utf-8"
+    />,
+  ])
+}
