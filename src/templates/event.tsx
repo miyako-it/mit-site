@@ -1,13 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Seo from 'components/Seo'
+import Seo from '../components/Seo'
+import { EventByIdTempQuery } from "../../types/graphql-types"
 
 import insane from 'insane' //xss対策
 import { parseISO, format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 
-export default function Template({ data }) {
+type Props = {
+  data: EventByIdTempQuery
+}
+
+const EventByIdTemp = ({ data }) => {
   const events = data.events
   const bodyHtml = insane(events.description)
 
@@ -51,7 +56,7 @@ export default function Template({ data }) {
   )
 }
 export const pageQuery = graphql`
-  query EventByIDTemp($slug: Int) {
+  query EventByIdTemp($slug: Int) {
     events(event_id: { eq: $slug }) {
       event_id
       title
@@ -65,3 +70,6 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default EventByIdTemp
+

@@ -4,9 +4,15 @@ import { graphql } from 'gatsby'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Img from 'gatsby-image'
 import Seo from '../components/Seo'
+import { IndexPageQuery } from "../../types/graphql-types"
+import Helmet from 'react-helmet'
 
 import { parseISO, format, isBefore } from 'date-fns'
 import { ja } from 'date-fns/locale'
+
+type Props = {
+  data: IndexPageQuery
+}
 
 const UpcomingEvents = ({ events, className }) => {
   const upcomingEvents = events.filter(event => {
@@ -45,7 +51,7 @@ const UpcomingEvents = ({ events, className }) => {
     )
   }
 }
-const IndexPage = ({ data }) => {
+const IndexPage : React.FC<Props> = ({ data }) => {
   const fluid = data.allImageSharp.edges[0].node.fluid
   const upcomingEvents = data.connpass.events
   return (
@@ -68,7 +74,9 @@ const IndexPage = ({ data }) => {
         fluid={fluid}
         alt="会場の写真"
       />
-      <UpcomingEvents className="mx-auto pt-10" events={upcomingEvents} />
+      <UpcomingEvents className="mx-auto pt-10 mb-24" events={upcomingEvents} />
+      <h2 className="mb-12 font-sans font-bold text-namari text-2xl text-left">Twitter</h2>
+      <a className="twitter-timeline" data-height="600" href="https://twitter.com/AIAI03304476?ref_src=twsrc%5Etfw">Tweets by AIAI03304476</a>
     </div>
   )
 }

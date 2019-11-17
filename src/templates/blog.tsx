@@ -2,12 +2,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Seo from '../components/Seo'
+import { EsaBlogTempQuery } from "../../types/graphql-types"
 
 // import insane from 'insane' //xss対策
 import { parseISO, format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 
-export default function Template({ data }) {
+type Props = {
+  data: EsaBlogTempQuery
+}
+
+const BlogTemplate : React.FC<Props> = ({ data }) => {
   const blog = data.allEsaPost.edges[0].node
   // const bodyHtml = insane(blog.body_html)
 
@@ -41,3 +46,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default BlogTemplate
