@@ -3,12 +3,20 @@ import { graphql } from 'gatsby'
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Seo from '../components/Seo'
+import LinkList from '../components/LinkList'
+import { EventsPageQuery } from "../../types/graphql-types"
+import { PageContextByPaginate } from "../../types/awesome-pagination"
 
 import { parseISO, format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 
-const Events = ({ data }) => {
-  const events = data.connpass.events
+type Props = {
+  data: EventsPageQuery
+  pageContext: PageContextByPaginate
+}
+
+const Events: React.FC<Props> = ({ data, pageContext }) => {
+  const events = data.allEvents.edges
   return (
     <div className="px-8 md:px-24">
       <div className="max-w-5xl mx-auto">
@@ -29,29 +37,31 @@ const Events = ({ data }) => {
             </a>
           </h2>
         </div>
+        <LinkList prefixPath='events' pageContext={pageContext} />
         <ul>
-          {events.map(event => {
+          {events.map((event) => {
             return (
               <li
-                key={event.event_id}
+                key={event.node.event_id}
                 className="list-none my-8 last:my-0 last:mt-8 flex flex-col items-start"
               >
-                <time dateTime={event.started_at} className="mb-2">
-                  {format(parseISO(event.started_at), `PPP EEEE`, {
+                <time dateTime={event.node.started_at} className="mb-2">
+                  {format(parseISO(event.node.started_at), `PPP EEEE`, {
                     locale: ja,
                   })}
                 </time>
                 <AniLink
                   className="font-serif underline_center"
                   fade
-                  to={`/events/${event.event_id}`}
+                  to={`/events/${event.node.event_id}`}
                 >
-                  <h3>{event.title}</h3>
+                  <h3>{event.node.title}</h3>
                 </AniLink>
               </li>
             )
           })}
         </ul>
+        <LinkList prefixPath='events' pageContext={pageContext} />
       </div>
     </div>
   )
@@ -60,12 +70,14 @@ const Events = ({ data }) => {
 export default Events
 
 export const query = graphql`
-  query EventsPage {
-    connpass {
-      events {
-        title
-        event_id
-        started_at
+  query EventsPage($skip: Int!, $limit: Int!) {
+    allEvents(skip: $skip, limit: $limit) {
+      edges {
+        node {
+          title
+          event_id
+          started_at
+        }
       }
     }
   }

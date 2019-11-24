@@ -2492,8 +2492,6 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -2777,8 +2775,6 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
-  port?: Maybe<Scalars['Int']>,
-  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -2910,8 +2906,6 @@ export type SiteFieldsEnum =
   'siteMetadata___description' |
   'siteMetadata___author' |
   'siteMetadata___siteUrl' |
-  'port' |
-  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -2922,8 +2916,6 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
@@ -2976,11 +2968,25 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  pageNumber?: Maybe<Scalars['Int']>,
+  humanPageNumber?: Maybe<Scalars['Int']>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  numberOfPages?: Maybe<Scalars['Int']>,
+  previousPagePath?: Maybe<Scalars['String']>,
+  nextPagePath?: Maybe<Scalars['String']>,
   slug?: Maybe<Scalars['Int']>,
   id?: Maybe<Scalars['String']>,
 };
 
 export type SitePageContextFilterInput = {
+  pageNumber?: Maybe<IntQueryOperatorInput>,
+  humanPageNumber?: Maybe<IntQueryOperatorInput>,
+  skip?: Maybe<IntQueryOperatorInput>,
+  limit?: Maybe<IntQueryOperatorInput>,
+  numberOfPages?: Maybe<IntQueryOperatorInput>,
+  previousPagePath?: Maybe<StringQueryOperatorInput>,
+  nextPagePath?: Maybe<StringQueryOperatorInput>,
   slug?: Maybe<IntQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
 };
@@ -3083,6 +3089,13 @@ export type SitePageFieldsEnum =
   'component' |
   'componentChunkName' |
   'isCreatedByStatefulCreatePages' |
+  'context___pageNumber' |
+  'context___humanPageNumber' |
+  'context___skip' |
+  'context___limit' |
+  'context___numberOfPages' |
+  'context___previousPagePath' |
+  'context___nextPagePath' |
   'context___slug' |
   'context___id' |
   'pluginCreator___id' |
@@ -3599,20 +3612,18 @@ export type Unnamed_1_QueryVariables = {};
 
 export type Unnamed_1_Query = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author' | 'siteUrl'>> }> };
 
-export type BlogsPageQueryVariables = {};
-
-
-export type BlogsPageQuery = { allEsaPost: { edges: Array<{ node: Pick<EsaPost, 'id' | 'name' | 'created_at' | 'updated_at'> }> } };
-
-export type EventsPageQueryVariables = {};
-
-
-export type EventsPageQuery = { connpass: Maybe<{ events: Maybe<Array<Maybe<Pick<Events, 'title' | 'event_id' | 'started_at'>>>> }> };
-
 export type IndexPageQueryVariables = {};
 
 
 export type IndexPageQuery = { allImageSharp: { edges: Array<{ node: { fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> } }> }, connpass: Maybe<{ events: Maybe<Array<Maybe<Pick<Events, 'title' | 'event_id' | 'started_at'>>>> }> };
+
+export type BlogsPageQueryVariables = {
+  skip: Scalars['Int'],
+  limit: Scalars['Int']
+};
+
+
+export type BlogsPageQuery = { allEsaPost: { edges: Array<{ node: Pick<EsaPost, 'id' | 'name' | 'created_at' | 'updated_at'> }> } };
 
 export type EsaBlogTempQueryVariables = {
   id?: Maybe<Scalars['String']>
@@ -3620,6 +3631,14 @@ export type EsaBlogTempQueryVariables = {
 
 
 export type EsaBlogTempQuery = { allEsaPost: { edges: Array<{ node: Pick<EsaPost, 'name' | 'created_at' | 'updated_at' | 'body_html'> }> } };
+
+export type EventsPageQueryVariables = {
+  skip: Scalars['Int'],
+  limit: Scalars['Int']
+};
+
+
+export type EventsPageQuery = { allEvents: { edges: Array<{ node: Pick<Events, 'title' | 'event_id' | 'started_at'> }> } };
 
 export type EventByIdTempQueryVariables = {
   slug?: Maybe<Scalars['Int']>

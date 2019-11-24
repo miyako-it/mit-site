@@ -3,12 +3,20 @@ import { graphql } from 'gatsby'
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Seo from '../components/Seo'
+import { BlogsPageQuery } from "../../types/graphql-types"
+import { PageContextByPaginate } from "../../types/awesome-pagination"
 
 import { parseISO, format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 
-const Blogs = ({ data }) => {
+type Props = {
+  data: BlogsPageQuery
+  pageContext: PageContextByPaginate
+}
+
+const Blogs: React.FC<Props> = ({ data, pageContext }) => {
   const blogs = data.allEsaPost.edges
+  const { previousPagePath, nextPagePath, numberOfPages } = pageContext
 
   return (
     <div className="px-8 md:px-24">
@@ -18,6 +26,31 @@ const Blogs = ({ data }) => {
           <h1 className="font-san font-bold text-gray-900 text-4xl text-center">
             <p>ブログ</p>
           </h1>
+        </div>
+        <div className='my-8 flex justify-between'>
+          {previousPagePath ? <AniLink className="font-serif underline_center"
+            fade
+            to={previousPagePath}>Previous</AniLink> : null}
+          {numberOfPages > 1 ? Array.from({ length: numberOfPages }, (_, i) => {
+            {
+              if (i > 0) {
+                return (
+                  <AniLink className="font-serif underline_center"
+                    fade
+                    to={`/blogs/${i + 1}`}>{i + 1}</AniLink>
+                )
+              } else if (i === 0) {
+                return (
+                  <AniLink className="font-serif underline_center"
+                    fade
+                    to={`/blogs`}>1</AniLink>
+                )
+              }
+            }
+          }) : null}
+          {nextPagePath ? <AniLink className="font-serif underline_center"
+            fade
+            to={nextPagePath}>Next</AniLink> : null}
         </div>
         <ul>
           {blogs.map(blog => {
@@ -47,8 +80,8 @@ const Blogs = ({ data }) => {
 export default Blogs
 
 export const data = graphql`
-  query BlogsPage {
-    allEsaPost {
+  query BlogsPage($skip: Int!, $limit: Int!) {
+    allEsaPost(skip: $skip, limit: $limit) {
       edges {
         node {
           id

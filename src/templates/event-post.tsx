@@ -12,7 +12,7 @@ type Props = {
   data: EventByIdTempQuery
 }
 
-const EventByIdTemp = ({ data }) => {
+const EventByIdTemp: React.FC<Props> = ({ data }) => {
   const events = data.events
   const bodyHtml = insane(events.description)
 
