@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        id: process.env.GOOGLE_ANALYTICS_ID,
+        id: process.env.google_analytics_id,
       },
     },
     // {
@@ -59,7 +59,7 @@ module.exports = {
     {
       resolve: `gatsby-source-esa`,
       options: {
-        accessToken: process.env.ESA_ACCESS_TOKEN,
+        accessToken: process.env.esa_access_token,
         teamName: `mit`,
         // Search queary (optional)
         // See docs: https://docs.esa.io/posts/104
