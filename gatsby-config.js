@@ -29,6 +29,7 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-twitter`,
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-google-analytics`,

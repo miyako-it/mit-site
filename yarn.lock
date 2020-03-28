@@ -6138,6 +6138,13 @@ gatsby-plugin-transition-link@^1.14.2:
     react-transition-group "^2.5.0"
     requestanimationframe-timer "^1.0.4"
 
+gatsby-plugin-twitter@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-twitter/-/gatsby-plugin-twitter-2.2.1.tgz#7f953f90a12bf9a3430641b213ab4671d5f22d7a"
+  integrity sha512-y2HvIt4LuINIX5uGFlLdnqbWoteg+Qt/OV/ub2aS412KJ76ofaTwrll+wzYOUw9n3tXWEP9KwKYZsOf7YU+QQA==
+  dependencies:
+    "@babel/runtime" "^7.8.7"
+
 gatsby-plugin-typescript@^2.1.15:
   version "2.1.17"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.1.17.tgz#f0b650ac9e0fe5485dca848531a5dbc4cf4ce1ba"
@@ -10211,7 +10218,6 @@ parse-path@^4.0.0:
 
 "parse-srcset@github:ikatyang/parse-srcset#54eb9c1cb21db5c62b4d0e275d7249516df6f0ee":
   version "1.0.2"
-  uid "54eb9c1cb21db5c62b4d0e275d7249516df6f0ee"
   resolved "https://codeload.github.com/ikatyang/parse-srcset/tar.gz/54eb9c1cb21db5c62b4d0e275d7249516df6f0ee"
 
 parse-unit@^1.0.1:
@@ -11351,7 +11357,7 @@ prettierx@0.11.0:
     minimist "1.2.0"
     n-readlines "1.0.0"
     normalize-path "3.0.0"
-    parse-srcset "github:ikatyang/parse-srcset#54eb9c1cb21db5c62b4d0e275d7249516df6f0ee"
+    parse-srcset ikatyang/parse-srcset#54eb9c1cb21db5c62b4d0e275d7249516df6f0ee
     postcss-less "2.0.0"
     postcss-media-query-parser "0.2.3"
     postcss-scss "2.0.0"
