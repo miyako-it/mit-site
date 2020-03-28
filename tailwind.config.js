@@ -1,6 +1,7 @@
 const defaultTheme = require(`tailwindcss/defaultTheme`)
 
 module.exports = {
+  important: true,
   theme: {
     extend: {
       colors: {
@@ -70,8 +71,5 @@ module.exports = {
   variants: {
     margin: [`responsive`, `last`, `hover`, `focus`],
   },
-  plugins: [
-    require(`tailwindcss-transitions`)(),
-    require(`@tailwindcss/custom-forms`),
-  ],
+  plugins: [require(`tailwindcss-transitions`)(), require(`@tailwindcss/custom-forms`)],
 }
