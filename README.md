@@ -8,3 +8,12 @@ mitの公式サイトです
 yarn
 yarn develop
 ``
+
+.envと.env.buildを用意して
+
+``
+GOOGLE_ANALYTICS_ID=
+ESA_ACCESS_TOKEN=
+``
+
+を入力して下さい
