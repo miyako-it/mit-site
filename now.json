@@ -6,5 +6,11 @@
   "env": {
     "GOOGLE_ANALYTICS_ID": "@google_analytics_id",
     "ESA_ACCESS_TOKEN": "@esa_access_token"
+  },
+  "build": {
+    "env": {
+      "GOOGLE_ANALYTICS_ID": "@google_analytics_id",
+      "ESA_ACCESS_TOKEN": "@esa_access_token"
+    }
   }
 }
