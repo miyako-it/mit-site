@@ -89,8 +89,8 @@ export type ConnpassFieldsEnum =
   'events___series___id' |
   'events___series___title' |
   'events___series___url' |
-  'events___series___url__normalized' |
   'events___series___id__normalized' |
+  'events___series___url__normalized' |
   'events___series___parent___id' |
   'events___series___parent___children' |
   'events___series___children' |
@@ -607,6 +607,7 @@ export type EsaPost = Node & {
   done_tasks_count?: Maybe<Scalars['Int']>,
   url?: Maybe<Scalars['String']>,
   updated_at?: Maybe<Scalars['Date']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
   category?: Maybe<Scalars['String']>,
   revision_number?: Maybe<Scalars['Int']>,
   created_by?: Maybe<EsaPostCreated_By>,
@@ -615,6 +616,7 @@ export type EsaPost = Node & {
   watchers_count?: Maybe<Scalars['Int']>,
   star?: Maybe<Scalars['Boolean']>,
   watch?: Maybe<Scalars['Boolean']>,
+  sharing_urls?: Maybe<EsaPostSharing_Urls>,
   body?: Maybe<EsaPostBody>,
   relative_category?: Maybe<Scalars['String']>,
 };
@@ -918,6 +920,7 @@ export type EsaPostFieldsEnum =
   'done_tasks_count' |
   'url' |
   'updated_at' |
+  'tags' |
   'category' |
   'revision_number' |
   'created_by___name' |
@@ -930,6 +933,8 @@ export type EsaPostFieldsEnum =
   'watchers_count' |
   'star' |
   'watch' |
+  'sharing_urls___html' |
+  'sharing_urls___slides' |
   'body___id' |
   'body___parent___id' |
   'body___parent___parent___id' |
@@ -989,6 +994,7 @@ export type EsaPostFilterInput = {
   done_tasks_count?: Maybe<IntQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
   updated_at?: Maybe<DateQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
   category?: Maybe<StringQueryOperatorInput>,
   revision_number?: Maybe<IntQueryOperatorInput>,
   created_by?: Maybe<EsaPostCreated_ByFilterInput>,
@@ -997,6 +1003,7 @@ export type EsaPostFilterInput = {
   watchers_count?: Maybe<IntQueryOperatorInput>,
   star?: Maybe<BooleanQueryOperatorInput>,
   watch?: Maybe<BooleanQueryOperatorInput>,
+  sharing_urls?: Maybe<EsaPostSharing_UrlsFilterInput>,
   body?: Maybe<EsaPostBodyFilterInput>,
   relative_category?: Maybe<StringQueryOperatorInput>,
 };
@@ -1008,6 +1015,16 @@ export type EsaPostGroupConnection = {
   pageInfo: PageInfo,
   field: Scalars['String'],
   fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type EsaPostSharing_Urls = {
+  html?: Maybe<Scalars['String']>,
+  slides?: Maybe<Scalars['String']>,
+};
+
+export type EsaPostSharing_UrlsFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>,
+  slides?: Maybe<StringQueryOperatorInput>,
 };
 
 export type EsaPostSortInput = {
@@ -1097,8 +1114,8 @@ export type EventsFieldsEnum =
   'series___id' |
   'series___title' |
   'series___url' |
-  'series___url__normalized' |
   'series___id__normalized' |
+  'series___url__normalized' |
   'series___parent___id' |
   'series___parent___parent___id' |
   'series___parent___parent___children' |
@@ -2398,8 +2415,8 @@ export type QuerySeriesArgs = {
   id?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
-  url__normalized?: Maybe<StringQueryOperatorInput>,
   id__normalized?: Maybe<IntQueryOperatorInput>,
+  url__normalized?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>
@@ -2492,6 +2509,8 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -2525,6 +2544,7 @@ export type QueryEsaPostArgs = {
   done_tasks_count?: Maybe<IntQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
   updated_at?: Maybe<DateQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
   category?: Maybe<StringQueryOperatorInput>,
   revision_number?: Maybe<IntQueryOperatorInput>,
   created_by?: Maybe<EsaPostCreated_ByFilterInput>,
@@ -2533,6 +2553,7 @@ export type QueryEsaPostArgs = {
   watchers_count?: Maybe<IntQueryOperatorInput>,
   star?: Maybe<BooleanQueryOperatorInput>,
   watch?: Maybe<BooleanQueryOperatorInput>,
+  sharing_urls?: Maybe<EsaPostSharing_UrlsFilterInput>,
   body?: Maybe<EsaPostBodyFilterInput>,
   relative_category?: Maybe<StringQueryOperatorInput>
 };
@@ -2614,8 +2635,8 @@ export type Series = Node & {
   id: Scalars['ID'],
   title?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
-  url__normalized?: Maybe<Scalars['String']>,
   id__normalized?: Maybe<Scalars['Int']>,
+  url__normalized?: Maybe<Scalars['String']>,
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
@@ -2652,8 +2673,8 @@ export type SeriesFieldsEnum =
   'id' |
   'title' |
   'url' |
-  'url__normalized' |
   'id__normalized' |
+  'url__normalized' |
   'parent___id' |
   'parent___parent___id' |
   'parent___parent___parent___id' |
@@ -2744,8 +2765,8 @@ export type SeriesFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
-  url__normalized?: Maybe<StringQueryOperatorInput>,
   id__normalized?: Maybe<IntQueryOperatorInput>,
+  url__normalized?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
@@ -2775,6 +2796,8 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
+  port?: Maybe<Scalars['Int']>,
+  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -2906,6 +2929,8 @@ export type SiteFieldsEnum =
   'siteMetadata___description' |
   'siteMetadata___author' |
   'siteMetadata___siteUrl' |
+  'port' |
+  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -2916,6 +2941,8 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
