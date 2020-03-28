@@ -15,3 +15,5 @@ yarn-error.log*
 
 # enviromental variable
 .env
+
+.now
