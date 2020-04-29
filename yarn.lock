@@ -6519,12 +6519,12 @@ gatsby-plugin-robots-txt@^1.5.0:
     "@babel/runtime" "^7.5.1"
     generate-robotstxt "^7.1.0"
 
-gatsby-plugin-sass@^2.1.20:
-  version "2.1.21"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.1.21.tgz#c2dbf425909a243e03a1e89467a02becb56ca6f0"
-  integrity sha512-5xuWO+WjGMIDSJsN0DSO336q3gutAZEbwNGMxwf6+efB0zkKSI5kQDbUbV/+PDIlChRpfJ52bi43XH5uTNb1kg==
+gatsby-plugin-sass@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.2.1.tgz#574d2ff4763e5a78648d69022b7b570da9f903cb"
+  integrity sha512-YRzP5ZrGgABF/3ya9YJz80+pqLpVVuJf8gyBFjvC+GmM8kqbwm5w9k3HOf61kYcCDg5bje1CPNXu7ZQMkxu2mQ==
   dependencies:
-    "@babel/runtime" "^7.7.2"
+    "@babel/runtime" "^7.8.7"
     sass-loader "^7.3.1"
 
 gatsby-plugin-sharp@^2.2.36:
@@ -10682,6 +10682,7 @@ parse-path@^4.0.0:
 
 parse-srcset@ikatyang/parse-srcset#54eb9c1cb21db5c62b4d0e275d7249516df6f0ee:
   version "1.0.2"
+  uid "54eb9c1cb21db5c62b4d0e275d7249516df6f0ee"
   resolved "https://codeload.github.com/ikatyang/parse-srcset/tar.gz/54eb9c1cb21db5c62b4d0e275d7249516df6f0ee"
 
 parse-unit@^1.0.1:
