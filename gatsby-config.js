@@ -30,6 +30,7 @@ module.exports = {
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-twitter`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -49,6 +50,7 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
+        purgeOnly: [`/src/assets/css/tailwind.css`],
       },
     },
     {
@@ -103,7 +105,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sass`,
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-custom-api`,
