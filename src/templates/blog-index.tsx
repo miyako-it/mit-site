@@ -22,12 +22,12 @@ const Blogs: React.FC<Props> = ({ data, pageContext }) => {
     <div className="px-8 md:px-24">
       <div className="max-w-5xl mx-auto">
         <Seo title="Blogs" />
-        <div className="mx-auto py-16">
-          <h1 className="font-san font-bold text-gray-900 text-4xl text-center">
+        <div className="py-16 mx-auto">
+          <h1 className="text-4xl font-bold text-center text-gray-900 font-san">
             <p>ブログ</p>
           </h1>
         </div>
-        <div className='my-8 flex justify-between'>
+        <div className='flex justify-between my-8'>
           {previousPagePath ? <AniLink className="font-serif underline_center"
             fade
             to={previousPagePath}>Previous</AniLink> : null}
@@ -55,7 +55,7 @@ const Blogs: React.FC<Props> = ({ data, pageContext }) => {
         <ul>
           {blogs.map(blog => {
             return (
-              <li key={blog.node.id} className="list-none my-8 last:my-0 last:mt-8 flex flex-col">
+              <li key={blog.node.id} className="flex flex-col my-8 list-none last:my-0 last:mt-8">
                 <time dateTime={blog.node.created_at} className="mb-2">
                   {format(parseISO(blog.node.created_at), `PPP EEEE`, {
                     locale: ja,

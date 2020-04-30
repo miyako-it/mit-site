@@ -17,9 +17,9 @@ const EventByIdTemp: React.FC<Props> = ({ data }) => {
   const bodyHtml = insane(events.description)
 
   return (
-    <div className="max-w-5xl mx-auto px-8 md:px-24">
+    <div className="max-w-5xl px-8 mx-auto md:px-24">
       <Seo title={events.title} />
-      <h1 className="my-8 font-sans font-bold text-2xl">
+      <h1 className="my-8 font-sans text-2xl font-bold">
         <a
           className="underline_center"
           href={events.event_url}
@@ -72,4 +72,3 @@ export const pageQuery = graphql`
 `
 
 export default EventByIdTemp
-

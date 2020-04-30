@@ -17,9 +17,9 @@ const BlogTemplate : React.FC<Props> = ({ data }) => {
   // const bodyHtml = insane(blog.body_html)
 
   return (
-    <div className="max-w-5xl mx-auto px-8 md:px-24">
+    <div className="max-w-5xl px-8 mx-auto md:px-24">
       <Seo title={blog.name} />
-      <h1 className="my-8 font-sans font-bold text-2xl">{blog.name}</h1>
+      <h1 className="my-8 font-sans text-2xl font-bold">{blog.name}</h1>
       <time dateTime={blog.created_at} className="my-4 font-sans text-md">
         {format(parseISO(blog.created_at), `PPP EEEE`, {
           locale: ja,

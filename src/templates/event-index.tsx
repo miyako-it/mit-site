@@ -21,8 +21,8 @@ const Events: React.FC<Props> = ({ data, pageContext }) => {
     <div className="px-8 md:px-24">
       <div className="max-w-5xl mx-auto">
         <Seo title="Events" />
-        <div className="mx-auto py-16 flex flex-col items-center">
-          <h1 className="flex flex-col font-san font-bold text-gray-900 text-4xl text-center">
+        <div className="flex flex-col items-center py-16 mx-auto">
+          <h1 className="flex flex-col text-4xl font-bold text-center text-gray-900 font-san">
             <span className="mb-4">もくもく会</span>
             <span>勉強会</span>
           </h1>
@@ -43,7 +43,7 @@ const Events: React.FC<Props> = ({ data, pageContext }) => {
             return (
               <li
                 key={event.node.event_id}
-                className="list-none my-8 last:my-0 last:mt-8 flex flex-col items-start"
+                className="flex flex-col items-start my-8 list-none last:my-0 last:mt-8"
               >
                 <time dateTime={event.node.started_at} className="mb-2">
                   {format(parseISO(event.node.started_at), `PPP EEEE`, {

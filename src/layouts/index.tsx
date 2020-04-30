@@ -9,7 +9,7 @@ import { theme } from "@chakra-ui/core"
 // Use at the root of your app
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <div className="bg-neutral min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen bg-neutral">
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />

@@ -6,11 +6,11 @@ const Contact = () => {
     <div className="px-8 md:px-24">
       <div className="max-w-5xl mx-auto">
         <Seo title="Contact" />
-        <div className="mx-auto py-16 pb-20">
-          <h1 className="mb-16 font-san font-bold text-namari text-4xl text-center">
+        <div className="py-16 pb-20 mx-auto">
+          <h1 className="mb-16 text-4xl font-bold text-center font-san text-namari">
             お問い合わせ
           </h1>
-          <p className="font-serif text-gray-700 text-lg text-center">
+          <p className="font-serif text-lg text-center text-gray-700">
             団体へのお問い合わせ窓口
           </p>
         </div>
@@ -20,7 +20,7 @@ const Contact = () => {
             <input
               type="text"
               name="entry.1381866584"
-              className="form-input mt-4 block w-full bg-gray-100 placeholder-gray-600"
+              className="block w-full mt-4 placeholder-gray-600 bg-gray-100 form-input"
               placeholder="Your name"
               required
             />
@@ -30,7 +30,7 @@ const Contact = () => {
             <input
               type="email"
               name="entry.1405992146"
-              className="form-input mt-4 block w-full bg-gray-100 placeholder-gray-600"
+              className="block w-full mt-4 placeholder-gray-600 bg-gray-100 form-input"
               placeholder="example@gmail.com"
               required
             />
@@ -39,7 +39,7 @@ const Contact = () => {
             <span className="font-bold text-namari">お問い合わせ内容</span>
             <textarea
               name="entry.1780360931"
-              className="form-textarea mt-4 block w-full bg-gray-100 placeholder-gray-600"
+              className="block w-full mt-4 placeholder-gray-600 bg-gray-100 form-textarea"
               rows="5"
               placeholder="MITは素晴らしい"
               required
@@ -49,7 +49,7 @@ const Contact = () => {
             <button
               type="submit"
               name="button"
-              className="mt-4 p-4 bg-gray-100 hover:bg-gray-300 transition-all transition-300 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+              className="p-4 px-4 py-2 mt-4 font-semibold text-gray-800 transition-all bg-gray-100 border border-gray-400 rounded shadow hover:bg-gray-300 transition-300"
               value="送信"
             >
               送信

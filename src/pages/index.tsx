@@ -5,7 +5,6 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Img, { FluidObject } from 'gatsby-image'
 import Seo from '../components/Seo'
 import { IndexPageQuery } from "../../types/graphql-types"
-import Helmet from 'react-helmet'
 
 import { parseISO, format, isBefore } from 'date-fns'
 import { ja } from 'date-fns/locale'

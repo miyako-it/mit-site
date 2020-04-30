@@ -10,7 +10,7 @@ type Props = {
 const LinkList: React.FC<Props> = ({ prefixPath, pageContext }) => {
   const { previousPagePath, nextPagePath, numberOfPages } = pageContext
   return (
-    <ul className='my-8 flex justify-between'>
+    <ul className='flex justify-between my-8'>
       {previousPagePath ? <li key='previous'><AniLink className="font-serif underline_center"
         fade
         to={previousPagePath}>Previous</AniLink></li> : null}
