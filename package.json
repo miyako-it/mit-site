@@ -19,7 +19,7 @@
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-netlify": "^2.1.10",
     "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-postcss": "^2.1.5",
+    "gatsby-plugin-postcss": "^2.3.0",
     "gatsby-plugin-preact": "^3.1.21",
     "gatsby-plugin-preload-fonts": "^1.0.15",
     "gatsby-plugin-purgecss": "^4.0.1",
