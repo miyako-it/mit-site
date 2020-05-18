@@ -1,6 +1,7 @@
 'use strict'
 
 const { paginate } = require(`gatsby-awesome-pagination`)
+const Discord = require(`discord.js`)
 
 require(`ts-node`).register({
   compilerOptions: {
@@ -93,5 +94,33 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, `src`), `node_modules`],
     },
+  })
+}
+
+exports.onPostBuild = async () => {
+  const webhookClient = new Discord.WebhookClient(
+    `711598552387682367`,
+    `pSlCm-nxbZxev7rnE1eagwLmOaD1IwxXeEC7UfV7cYW8VRebf5kCWe0aldScPvwooDj3`
+  )
+
+  const embed = new Discord.MessageEmbed()
+    .setTitle(`new site rebuild`)
+    .setColor(`#0099ff`)
+    .setURL(process.env.VERCEL_URL)
+    .setAuthor(
+      process.env.VERCEL_GITHUB_COMMIT_AUTHOR_NAME,
+      `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN.png}`,
+      `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}`
+    )
+    .setDescription(`Some description here`)
+    .setThumbnail(`https://i.imgur.com/wSTFkRM.png`)
+    .addFields({ name: `Latest commit`, value: `Some value here` }, { name: `\u200B`, value: `\u200B` })
+    .setTimestamp()
+    .setFooter(`Some footer text here`, `https://i.imgur.com/wSTFkRM.png`)
+
+  await webhookClient.send(`new site build`, {
+    username: `vercel-build-webhook`,
+    avatarURL: `https://i.insider.com/5e990b018427e9308029c328`,
+    embeds: [embed],
   })
 }
