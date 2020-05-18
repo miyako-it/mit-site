@@ -114,14 +114,6 @@ exports.onPostBuild = async () => {
       `pSlCm-nxbZxev7rnE1eagwLmOaD1IwxXeEC7UfV7cYW8VRebf5kCWe0aldScPvwooDj3`
     )
 
-    console.log({
-      url: process.env.VERCEL_URL,
-      name: process.env.VERCEL_GITHUB_COMMIT_AUTHOR_NAME,
-      loginName: process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN,
-      repo: process.env.VERCEL_GITHUB_COMMIT_REPO,
-      sha: process.env.VERCEL_GITHUB_COMMIT_SHA,
-    })
-
     const embed = new Discord.MessageEmbed()
       .setTitle(commitMessage)
       .setColor(`#0099ff`)
@@ -137,8 +129,8 @@ exports.onPostBuild = async () => {
       })
       .setTimestamp()
 
-    await webhookClient.send(`new site rebuild`, {
-      username: `vercel-build-webhook`,
+    await webhookClient.send(`Build is successed!`, {
+      username: `vercel-build-successed`,
       avatarURL: `https://i.insider.com/5e990b018427e9308029c328`,
       embeds: [embed],
     })
