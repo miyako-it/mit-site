@@ -125,7 +125,7 @@ exports.onPostBuild = async () => {
     const embed = new Discord.MessageEmbed()
       .setTitle(commitMessage)
       .setColor(`#0099ff`)
-      .setURL(process.env.VERCEL_URL)
+      .setURL(`https://${process.env.VERCEL_URL}`)
       .setAuthor(
         process.env.VERCEL_GITHUB_COMMIT_AUTHOR_NAME,
         `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}.png`,
