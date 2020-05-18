@@ -108,8 +108,10 @@ exports.onPostBuild = async () => {
   })
 
   const commitMessage = response === null || response === undefined ? `new vercel rebuild` : response.body.message
-
-  const webhookClient = new Discord.WebhookClient(process.env.DISCORD_CHANNEL_ID, process.env.DISCORD_TOKEN)
+  const webhookClient = new Discord.WebhookClient(
+    `711598552387682367`,
+    `pSlCm-nxbZxev7rnE1eagwLmOaD1IwxXeEC7UfV7cYW8VRebf5kCWe0aldScPvwooDj3`
+  )
 
   const embed = new Discord.MessageEmbed()
     .setTitle(commitMessage)
