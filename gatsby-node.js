@@ -2,6 +2,7 @@
 
 const { paginate } = require(`gatsby-awesome-pagination`)
 const Discord = require(`discord.js`)
+const got = require(`got`)
 
 require(`ts-node`).register({
   compilerOptions: {
@@ -98,29 +99,37 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 }
 
 exports.onPostBuild = async () => {
-  const webhookClient = new Discord.WebhookClient(
-    `711598552387682367`,
-    `pSlCm-nxbZxev7rnE1eagwLmOaD1IwxXeEC7UfV7cYW8VRebf5kCWe0aldScPvwooDj3`
-  )
-
-  const embed = new Discord.MessageEmbed()
-    .setTitle(`new site rebuild`)
-    .setColor(`#0099ff`)
-    .setURL(process.env.VERCEL_URL)
-    .setAuthor(
-      process.env.VERCEL_GITHUB_COMMIT_AUTHOR_NAME,
-      `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN.png}`,
-      `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}`
+  try {
+    const {
+      body,
+    } = await got(
+      `https://api.github.com/repos/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}/${process.env.VERCEL_GITHUB_COMMIT_REPO}/git/commits/${process.env.VERCEL_GITHUB_COMMIT_SHA}`,
+      { responseType: `json` }
     )
-    .setDescription(`Some description here`)
-    .setThumbnail(`https://i.imgur.com/wSTFkRM.png`)
-    .addFields({ name: `Latest commit`, value: `Some value here` }, { name: `\u200B`, value: `\u200B` })
-    .setTimestamp()
-    .setFooter(`Some footer text here`, `https://i.imgur.com/wSTFkRM.png`)
+    const webhookClient = new Discord.WebhookClient(process.env.DISCORD_CHANNEL_ID, process.env.DISCORD_TOKEN)
 
-  await webhookClient.send(`new site build`, {
-    username: `vercel-build-webhook`,
-    avatarURL: `https://i.insider.com/5e990b018427e9308029c328`,
-    embeds: [embed],
-  })
+    const embed = new Discord.MessageEmbed()
+      .setTitle(body.message)
+      .setColor(`#0099ff`)
+      .setURL(process.env.VERCEL_URL)
+      .setAuthor(
+        process.env.VERCEL_GITHUB_COMMIT_AUTHOR_NAME,
+        `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}.png`,
+        `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}`
+      )
+      .addFields({
+        name: `Latest commit`,
+        value: `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}/${process.env.VERCEL_GITHUB_COMMIT_REPO}/commit/${process.env.VERCEL_GITHUB_COMMIT_SHA}`,
+      })
+      .setTimestamp()
+
+    await webhookClient.send(`new site build`, {
+      username: `vercel-build-webhook`,
+      avatarURL: `https://i.insider.com/5e990b018427e9308029c328`,
+      embeds: [embed],
+    })
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error.response.body)
+  }
 }
