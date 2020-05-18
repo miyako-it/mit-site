@@ -99,38 +99,48 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 }
 
 exports.onPostBuild = async () => {
-  const response = await got(
-    `https://api.github.com/repos/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}/${process.env.VERCEL_GITHUB_COMMIT_REPO}/git/commits/${process.env.VERCEL_GITHUB_COMMIT_SHA}`,
-    { responseType: `json` }
-  ).catch(error => {
-    // eslint-disable-next-line no-console
-    console.error(error.response.body)
-  })
-
-  const commitMessage = response === null || response === undefined ? `new vercel rebuild` : response.body.message
-  const webhookClient = new Discord.WebhookClient(
-    `711598552387682367`,
-    `pSlCm-nxbZxev7rnE1eagwLmOaD1IwxXeEC7UfV7cYW8VRebf5kCWe0aldScPvwooDj3`
-  )
-
-  const embed = new Discord.MessageEmbed()
-    .setTitle(commitMessage)
-    .setColor(`#0099ff`)
-    .setURL(process.env.VERCEL_URL)
-    .setAuthor(
-      process.env.VERCEL_GITHUB_COMMIT_AUTHOR_NAME,
-      `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}.png`,
-      `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}`
-    )
-    .addFields({
-      name: `Latest commit`,
-      value: `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}/${process.env.VERCEL_GITHUB_COMMIT_REPO}/commit/${process.env.VERCEL_GITHUB_COMMIT_SHA}`,
+  if (process.env.VERCEL_URL) {
+    const response = await got(
+      `https://api.github.com/repos/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}/${process.env.VERCEL_GITHUB_COMMIT_REPO}/git/commits/${process.env.VERCEL_GITHUB_COMMIT_SHA}`,
+      { responseType: `json` }
+    ).catch(error => {
+      // eslint-disable-next-line no-console
+      console.error(error.response.body)
     })
-    .setTimestamp()
 
-  await webhookClient.send(`new site rebuild`, {
-    username: `vercel-build-webhook`,
-    avatarURL: `https://i.insider.com/5e990b018427e9308029c328`,
-    embeds: [embed],
-  })
+    const commitMessage = response === null || response === undefined ? `new vercel rebuild` : response.body.message
+    const webhookClient = new Discord.WebhookClient(
+      `711598552387682367`,
+      `pSlCm-nxbZxev7rnE1eagwLmOaD1IwxXeEC7UfV7cYW8VRebf5kCWe0aldScPvwooDj3`
+    )
+
+    console.log({
+      url: process.env.VERCEL_URL,
+      name: process.env.VERCEL_GITHUB_COMMIT_AUTHOR_NAME,
+      loginName: process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN,
+      repo: process.env.VERCEL_GITHUB_COMMIT_REPO,
+      sha: process.env.VERCEL_GITHUB_COMMIT_SHA,
+    })
+
+    const embed = new Discord.MessageEmbed()
+      .setTitle(commitMessage)
+      .setColor(`#0099ff`)
+      .setURL(process.env.VERCEL_URL)
+      .setAuthor(
+        process.env.VERCEL_GITHUB_COMMIT_AUTHOR_NAME,
+        `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}.png`,
+        `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}`
+      )
+      .addFields({
+        name: `Latest commit`,
+        value: `https://github.com/${process.env.VERCEL_GITHUB_COMMIT_AUTHOR_LOGIN}/${process.env.VERCEL_GITHUB_COMMIT_REPO}/commit/${process.env.VERCEL_GITHUB_COMMIT_SHA}`,
+      })
+      .setTimestamp()
+
+    await webhookClient.send(`new site rebuild`, {
+      username: `vercel-build-webhook`,
+      avatarURL: `https://i.insider.com/5e990b018427e9308029c328`,
+      embeds: [embed],
+    })
+  }
 }
