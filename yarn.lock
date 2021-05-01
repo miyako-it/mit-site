@@ -868,17 +868,10 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-transform-typescript" "^7.7.2"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.7":
-  version "7.9.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
-  integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.9.2":
-  version "7.9.6"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
-  integrity sha512-64AF1xY3OAkFHqOb9s4jpgk1Mm5vDZ4L3acHvAml+53nO1XbXLuDodsVpO4OIUsmemlUHMxNdYMNJmsvOwLrvQ==
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
+  integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -6772,15 +6765,15 @@ gatsby-plugin-manifest@^2.0.24:
     semver "^5.7.1"
     sharp "^0.23.2"
 
-gatsby-plugin-netlify@^2.1.10:
-  version "2.1.24"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.1.24.tgz#bdb414aa7f0ac5984339212d662699c054061c05"
-  integrity sha512-2lfMN374Hbh+sHlHATwoqE2ow1RvtAZ4ebBiXd609/4qWMDz3St7q4IKm721PnYkGRDYY4rKhgdlsMvihTiFUw==
+gatsby-plugin-netlify@^2.11.1:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.11.1.tgz#73b21a3dfdea4abd5ac7569e3003868c55591c27"
+  integrity sha512-mvMYgiVsASU48loQJuexGmvddo3lUJhwMeJQF3lkEx8V7ATt5lHVHzxwko5fypwrVc40ZBGiNsIQ08MiIu3rYg==
   dependencies:
-    "@babel/runtime" "^7.7.2"
+    "@babel/runtime" "^7.12.5"
     fs-extra "^8.1.0"
     kebab-hash "^0.1.2"
-    lodash "^4.17.15"
+    lodash "^4.17.20"
     webpack-assets-manifest "^3.1.1"
 
 gatsby-plugin-offline@^2.0.25:
@@ -9517,10 +9510,15 @@ lodash.uniqby@4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.uniqby/-/lodash.uniqby-4.7.0.tgz#d99c07a669e9e6d24e1362dfe266c67616af1302"
   integrity sha1-2ZwHpmnp5tJOE2Lf4mbGdhavEwI=
 
-lodash@4.17.15, lodash@^4.0.0, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.10:
+lodash@4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+lodash@^4.0.0, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.10:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^1.0.2:
   version "1.0.2"
